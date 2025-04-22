@@ -1,12 +1,54 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Akan Name Generator</title>
 </head>
 <body>
-    p1
+    <style src="styles/styles.css"></style>
+<div class="container">
+    <h1>Akan Name Generator</h1>
+    <label for="day">Select your day of birth:</label>
+    <select id="day">
+        <option value="1">Sunday</option>
+        <option value="2">Monday</option>
+        <option value="3">Tuesday</option>
+        <option value="4">Wednesday</option>
+        <option value="5">Thursday</option>
+        <option value="6">Friday</option>
+        <option value="7">Saturday</option>
+    </select>
+
+    <label for="gender">Select your gender:</label>
+    <select id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+
+    <button onclick="generateName()">Generate Akan Name</button>
     
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function generateName() {
+        const day = document.getElementById('day').value;
+        const gender = document.getElementById('gender').value;
+
+        const names = {
+            1: { male: "Kwasi", female: "Akosua" }, // Sunday
+            2: { male: "Kwadwo", female: "Adwoa" }, // Monday
+            3: { male: "Kwabena", female: "Abena" }, // Tuesday
+            4: { male: "Kwaku", female: "Akua" },   // Wednesday
+            5: { male: "Yaw", female: "Yaa" },       // Thursday
+            6: { male: "Kofi", female: "Afia" },     // Friday
+            7: { male: "Kwame", female: "Ama" }      // Saturday
+        };
+
+        const name = names[day][gender];
+        document.getElementById('result').innerText = `Your Akan name is: ${name}`;
+    }
+</script>
+
 </body>
 </html>
